@@ -1,0 +1,357 @@
+@import "variables.scss";
+body {
+    margin: 0;
+    font-family: "Roboto", "Montserrat", sans-serif;
+    box-sizing: border-box;
+}
+
+.exercise-header {
+    padding: 1rem 0;
+    margin: 2rem 0;
+    text-align: center;
+    color: #fff;
+    background-color: #00a4bd;
+}
+
+
+/* The actual timeline (the vertical ruler) */
+
+.timeline {
+    position: relative;
+    max-width: 100%; //raisha
+    //margin: 0 auto;
+    padding: 30px;
+    // padding-right: 14px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    //second circle
+    span::before {
+        content: " ";
+        background-color: $timeline-color;
+        border-radius: 100%;
+        width: 7px;
+        height: 7px;
+        position: absolute;
+        left: -32px; //raisha
+        top: 10px; //raisha
+        //left: -38px;
+        // top: 116px;
+    }
+}
+
+
+/* Container around content */
+
+.container {
+    padding-right: 34px;
+    position: relative;
+    background-color: inherit;
+    width: 403px;
+    font-family: "Times New Roman, Times, serif";
+    text-align: justify;
+    text-justify: inter-word;
+    /* The circles on the timeline */
+    &::after {
+        content: "";
+        color: $white-color;
+        position: absolute;
+        width: 28px;
+        height: 26px;
+        left: -46px;
+        background-color: $timeline-color;
+        border: 4px solid $timeline-color;
+        top: -7px;
+        background-image: url("../assets/doublequotes.png");
+        background-position: center;
+        background-size: 16px;
+        background-repeat: no-repeat;
+        border-radius: 100%;
+        z-index: 1;
+    }
+    /* timeline line */
+    &::before {
+        content: "";
+        background-color: $timeline-color;
+        width: 2px;
+        position: absolute;
+        left: -30px;
+        height: 95%;
+    }
+}
+
+
+/* The actual content */
+
+.content {
+    padding: 20px 30px;
+    background-color: $white-color;
+    position: relative;
+    border-radius: 6px;
+}
+
+.tell-me-more {
+    float: right;
+    background-color: $button-color;
+    padding: 15px 30px;
+    color: $white-color;
+    font-weight: bold;
+    font-size: 10px;
+    border-radius: 4px;
+}
+
+.dot {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+
+/* Media queries - Responsive timeline on different screens wide */
+
+@media screen and (max-width: 480px) {
+    /* Place the timelime to the left */
+    .timeline::after {
+        left: 31px;
+    }
+    /* Full-width containers */
+    .container {
+        width: 100px;
+        padding-left: 62px;
+        padding-right: 50px;
+    }
+    /* The circles on the timeline */
+    .container::after {
+        content: "";
+        color: $white-color;
+        position: absolute;
+        width: 28px;
+        height: 26px;
+        left: 12px;
+        background-color: $timeline-color;
+        border: 4px solid $timeline-color;
+        top: -7px;
+        background-image: url("../assets/doublequotes.png");
+        background-position: center;
+        background-size: 16px;
+        background-repeat: no-repeat;
+        border-radius: 100%;
+        z-index: 1;
+    }
+    /* The actual timeline (the vertical ruler) */
+    .timeline {
+        position: relative;
+        max-width: 100%;
+        padding-right: 56px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    /* timeline line */
+    .container::before {
+        content: "";
+        position: absolute;
+        width: 2px;
+        background-color: $timeline-color;
+        top: 58px;
+        bottom: 32px;
+        left: 27px;
+        top: 31px;
+        height: 406px;
+    }
+    /* second circle */
+    .timeline span::before {
+        content: " ";
+        background-color: $timeline-color;
+        border-radius: 100%;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        left: -38px;
+        top: 45px;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    /*  Place the timelime to the left */
+    .timeline::after {
+        left: 31px;
+    }
+    /* Full-width containers */
+    .container {
+        max-width: 100%;
+        padding-left: 62px;
+        padding-right: 50px;
+        /* The circles on the timeline */
+        &::after {
+            content: "";
+            color: $white-color;
+            position: absolute;
+            width: 28px;
+            height: 26px;
+            left: 12px;
+            background-color: $timeline-color;
+            border: 4px solid $timeline-color;
+            top: -7px;
+            background-image: url("../assets/doublequotes.png");
+            background-position: center;
+            background-size: 16px;
+            background-repeat: no-repeat;
+            border-radius: 100%;
+            z-index: 1;
+        }
+        /* timeline line */
+        &::before {
+            content: "";
+            background-color: $timeline-color;
+            width: 2px;
+            position: absolute;
+            top: 30px;
+            left: 28px;
+            height: 70%;
+        }
+    }
+    /* The actual timeline (the vertical ruler) */
+    .timeline {
+        position: relative;
+        max-width: 100%;
+        padding-right: 14px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        /* second circle */
+        span::before {
+            content: " ";
+            background-color: $timeline-color;
+            border-radius: 100%;
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            left: -38px;
+        }
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    /* Place the timelime to the left */
+    .timeline::after {
+        left: 31px;
+    }
+    /* Full-width containers */
+    .container {
+        max-width: 100%;
+        padding-left: 62px;
+        padding-right: 50px;
+        /* The circles on the timeline */
+        &::after {
+            content: "";
+            color: $white-color;
+            position: absolute;
+            width: 28px;
+            height: 26px;
+            left: 12px;
+            background-color: $timeline-color;
+            border: 4px solid $timeline-color;
+            top: -7px;
+            background-image: url("../assets/doublequotes.png");
+            background-position: center;
+            background-size: 16px;
+            background-repeat: no-repeat;
+            border-radius: 100%;
+            z-index: 1;
+        }
+        /* timeline line */
+        &::before {
+            content: "";
+            background-color: $timeline-color;
+            width: 2px;
+            position: absolute;
+            top: 30px;
+            left: 28px;
+            height: 88px;
+        }
+    }
+    /* The actual timeline (the vertical ruler) */
+    .timeline {
+        position: relative;
+        max-width: 100%;
+        padding-right: 14px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        /* second circle */
+        &span::before {
+            content: " ";
+            background-color: $timeline-color;
+            border-radius: 100%;
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            left: -36px;
+        }
+    }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+    /* Place the timelime to the left */
+    .timeline::after {
+        left: 31px;
+    }
+    /* Full-width containers */
+    .container {
+        max-width: 100%;
+        padding-left: 62px;
+        padding-right: 50px;
+        /* The circles on the timeline */
+        &::after {
+            content: "";
+            color: $white-color;
+            position: absolute;
+            width: 28px;
+            height: 26px;
+            left: 12px;
+            background-color: $timeline-color;
+            border: 4px solid $timeline-color;
+            top: -7px;
+            background-image: url("../assets/doublequotes.png");
+            background-position: center;
+            background-size: 16px;
+            background-repeat: no-repeat;
+            border-radius: 100%;
+            z-index: 1;
+        }
+        /* timeline line */
+        &::before {
+            content: "";
+            background-color: $timeline-color;
+            width: 2px;
+            position: absolute;
+            top: 30px;
+            left: 28px;
+            height: 72%;
+        }
+    }
+    /* The actual timeline (the vertical ruler) */
+    .timeline {
+        position: relative;
+        max-width: 100%;
+        padding-right: 14px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        &span::before {
+            content: " ";
+            background-color: $timeline-color;
+            border-radius: 100%;
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            left: -38px;
+        }
+    }
+}
